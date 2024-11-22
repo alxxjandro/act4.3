@@ -2,7 +2,6 @@
 #include <vector>
 #include "Graph.h"
 #include "Tools.h"
-#include "unordered_map"
 using namespace std;
 
 int main() {
@@ -16,15 +15,18 @@ int main() {
     vector<string> ipIzq, ipDer;
     Tools::almacenarVector("../BitacoraRandom.txt", ips);
 
+    //dividir la ip de entrada y salida
     for (string ip : ips){
         Tools::splitIPS(ip,ipIzq,ipDer);
     }
 
+    //crear un grafo y agregar todas las ips
     Graph test;
     for (int i = 0; i < ips.size(); ++i) {
         test.addEdge(ipIzq[i],ipDer[i]);
     }
 
+    test.print(ipIzq,ipDer);
 }
 
 
