@@ -20,18 +20,41 @@ vector<string> Graph::getList(string key) {
     return {};
 }
 
-void Graph::ordenarIPS(vector<string>& ipIzq, vector<string>& ipDer){
-    //vector<string> tempIP;
-}
+//necesitamos cambiar el bubble sort este por quicksort ajajajaj
+void Graph::ordenarIPS(vector<string>& ipIzq, vector<string>& ipDer) {
+    for (size_t i = 0; i < ipIzq.size() - 1; ++i) {
+        for (size_t j = 0; j < ipIzq.size() - i - 1; ++j) {
 
-void Graph::print(vector<string> ipIzq, vector<string> ipDer){
-    vector<string> tempIP;
+            int sizeA = this->getList(ipIzq[j]).size();
+            int sizeB = this->getList(ipIzq[j + 1]).size();
 
-    for (int i = 0; i < ipIzq.size(); ++i) {
-        tempIP.clear();
-        tempIP = this->getList(ipIzq[i]);
-        if(true){
-            cout << "La IP '"<< ipIzq[i] << "' cuenta con " << tempIP.size() << " vertices" << endl;
+            if (sizeA < sizeB) {
+                swap(ipIzq[j], ipIzq[j + 1]);
+            }
         }
     }
 }
+
+void Graph::print(vector<string> ipIzq, vector<string> ipDer, int amount) {
+
+    if (amount > ipIzq.size()){
+        amount = ipIzq.size();
+    }
+
+    vector<string> procesadas; //pa no imprimirlas 2 veces
+    vector<string> tempIP;
+
+    for (int i = 0; i < ipIzq.size(); ++i) {
+        if (find(procesadas.begin(), procesadas.end(), ipIzq[i]) == procesadas.end()) {
+            tempIP.clear();
+            tempIP = this->getList(ipIzq[i]);
+            cout << "La IP '" << ipIzq[i] << "' cuenta con " << tempIP.size() << " vertices" << endl;
+            procesadas.push_back(ipIzq[i]); //ya no jala
+            amount -= 1;
+            if (amount == 0){
+                break;
+            }
+        }
+    }
+}
+

@@ -26,7 +26,16 @@ int main() {
         test.addEdge(ipIzq[i],ipDer[i]);
     }
 
-    test.print(ipIzq,ipDer);
+    test.ordenarIPS(ipIzq,ipDer);
+
+    //imprime las 5 con mas fan-outs
+    cout << "Primeras 5 IP's con mas fan-outs" << endl;
+    test.print(ipIzq,ipDer,5); cout << "\n";
+
+    //imprime todas!!
+    cout << "IP's con mas fan-outs en orden!" << endl;
+    test.print(ipIzq,ipDer,ipIzq.size());
+
 }
 
 

@@ -13,7 +13,7 @@ public:
     Graph();
     void addEdge(string& verticeOne, string& verticeTwo);
     vector<string> getList(string key);
-    void print(vector<string> ipIzq, vector<string> ipDer);
+    void print(vector<string> ipIzq, vector<string> ipDer, int amount);
     void ordenarIPS(vector<string>& ipIzq, vector<string>& ipDer);
 };
 
