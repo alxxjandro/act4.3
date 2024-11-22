@@ -1,4 +1,6 @@
 #include "Graph.h"
+#include <iostream>
+using namespace std;
 
 Graph::Graph(int numOfVer) {
     this-> numOfVer = numOfVer;

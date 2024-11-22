@@ -84,3 +84,22 @@ void Tools::crearArchivo(vector<string> documento){
         result << line  << endl;
     }
 }
+
+// ~ ~ ~ Esta parte, es para que, tomando ips con el formato "423.2.230.77 - 213.14.483.94"
+// ~ ~ ~ lleguemos a tener cada una de manera separada.
+
+void Tools::splitIPS(string ips, vector<string>& VecIzq, vector<string>& VecDer){
+    string ipIzq, ipDer;
+
+    for (int i = 0; i < ips.size(); ++i) {
+        //cout << ips[i] << endl;
+        if (ips[i] == ' ' && ips[i+1] == '-'){
+            ipIzq = ips.substr(0,i);
+        } if (ips[i] == ' ' && ips[i-1]){
+            ipDer = ips.substr(i+1);
+        }
+    }
+
+    VecIzq.push_back(ipIzq);
+    VecDer.push_back(ipDer);
+}
