@@ -1,16 +1,17 @@
 #ifndef ACT4_3_GRAPH_H
 #define ACT4_3_GRAPH_H
-#include <list>
-#include <map>
+#include <unordered_map>
+#include <vector>
+#include <string>
 using namespace std;
 
 class Graph {
 private:
-    int numOfVer;
-    list<int>* adjacent;
+    unordered_map<string, vector<string>> adjacent;
+
 public:
-    Graph(int numOfVer);
-    void addEdge(int verticeOne,int verticeTwo);
+    Graph();
+    void addEdge(string& verticeOne, string& verticeTwo);
 };
 
 

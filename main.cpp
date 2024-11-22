@@ -16,7 +16,14 @@ int main() {
     vector<string> ipIzq, ipDer;
     Tools::almacenarVector("../BitacoraRandom.txt", ips);
 
+    for (string ip : ips){
+        Tools::splitIPS(ip,ipIzq,ipDer);
+    }
 
+    Graph test;
+    for (int i = 0; i < ips.size(); ++i) {
+        test.addEdge(ipIzq[i],ipDer[i]);
+    }
 
 }
 
