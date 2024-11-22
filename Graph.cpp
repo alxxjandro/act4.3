@@ -20,13 +20,17 @@ vector<string> Graph::getList(string key) {
     return {};
 }
 
-void Graph::print(vector<string> ipIzq, vector<string> ipDer){
-    vector<string> tempIP = this->getList("423.2.230.77");
+void Graph::ordenarIPS(vector<string>& ipIzq, vector<string>& ipDer){
+    //vector<string> tempIP;
+}
 
-    for (int i = 0; i < 255; ++i) {
+void Graph::print(vector<string> ipIzq, vector<string> ipDer){
+    vector<string> tempIP;
+
+    for (int i = 0; i < ipIzq.size(); ++i) {
         tempIP.clear();
         tempIP = this->getList(ipIzq[i]);
-        if(tempIP.size() != 1){
+        if(true){
             cout << "La IP '"<< ipIzq[i] << "' cuenta con " << tempIP.size() << " vertices" << endl;
         }
     }
