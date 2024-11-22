@@ -34,11 +34,8 @@ int main() {
 
     //imprime todas!!
     cout << "IP's con mas fan-outs en orden!" << endl;
-    test.print(ipIzq,ipDer,ipIzq.size());
+    test.print(ipIzq,ipDer,ipIzq.size()); cout << endl;
 
+    cout << "El boot master es la IP" << endl;
+    test.print(ipIzq,ipDer,1);
 }
-
-
-
-
-
